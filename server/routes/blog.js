@@ -39,9 +39,9 @@ Router.route('/api/blog/:blogId')
     })
   })
 
-  Router.route('/api/blog/:blogId')
+Router.route('/api/blog/:blogId')
   .delete((req, res) => {
-    const deletePost = req.params.blogId
+    const deleteId = req.params.blogId
     BlogPost.remove({_id: deleteId}, (err, blog) => {
       if (err) {
         res.json({ error: err })
@@ -49,6 +49,5 @@ Router.route('/api/blog/:blogId')
         res.json({ msg: 'Your Post was deleted', blog })
       }
     })
-  }
-
+  })
 module.exports = Router

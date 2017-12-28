@@ -8,4 +8,4 @@ const BlogPost = new Schema({
   img: { type: String, required: true }
 })
 
-module.exports = mongoose.model(('BlogPost', BlogPost))
+module.exports = mongoose.model('BlogPost', BlogPost)
