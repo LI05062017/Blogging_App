@@ -2,6 +2,7 @@ import React from 'react'
 import {
   Link
 } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const style = {
   container: {
@@ -20,28 +21,34 @@ const style = {
     fontFamily: 'Petit Formal Script'
   },
   link: {
-    padding: 15
+    padding: 20
   }
 }
 
-const NavBar = () => {
+const NavBar = ({DropdownButton, MenuItem}) => {
   return (
     <nav style={style.container}>
       <h1 style={style.title}>LifeStyle Blog</h1>
       <div style={style.link}>
-        <select>
-          <option> <Link to='/'>Home</Link> </option>
-          <option> <Link to='/'>About</Link> </option>
-          <option> <Link to='/'>All Posts</Link> </option>
-          <option> <Link to='/'>Create Post </Link> </option>
-          <option> <Link to='/'>Food</Link> </option>
-          <option> <Link to='/'>Style</Link> </option>
-          <option> <Link to='/'>Travel</Link> </option>
-          <option> <Link to='/'>WishList</Link> </option>
-        </select>
+
+        <Link to='/'>Home</Link>
+        <Link to='/'>About</Link>
+        <Link to='/'>All Posts</Link>
+        <Link to='/'>Create Post </Link>
+        <Link to='/'>Food</Link>
+        <Link to='/'>Style</Link>
+        <Link to='/'>Travel</Link>
+        <Link to='/'>WishList</Link>
+
       </div>
     </nav>
   )
+}
+
+NavBar.propTypes = {
+  DropdownButton: PropTypes.func.isRequired,
+  MenuItem: PropTypes.func.isRequired
+
 }
 
 export default NavBar

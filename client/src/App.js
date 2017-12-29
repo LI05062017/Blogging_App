@@ -4,15 +4,18 @@ import {
   Route
 } from 'react-router-dom'
 import $ from 'jquery'
-import NavBar from './NavBar'
-import Header from './Header'
-import Home from './Home'
-import About from './About'
+import NavBar from './Components/NavBar'
+import Header from './Components/Header'
+import Home from './Components/Home'
+import About from './Components/About'
 import CreateBlogPost from './CreateBlogPost'
+import BlogPostContainer from './BlogPostContainer'
+import BlogPosts from './BlogPosts'
+import EditPostContainer from './EditPostContainer'
 
 class App extends Component {
 state = {
-  blogPost: undefined
+  posts: undefined
 }
 
 componentDidMount () {
@@ -24,7 +27,7 @@ loadBlogPostsFromServer = () => {
     url: '/api/blog',
     method: 'GET'
   }).done((response) => {
-    this.setState({blogPost: response.blogPost})
+    this.setState({posts: response.blogPost})
   })
 }
 
@@ -37,7 +40,7 @@ submitBlogPost = (e) => {
   }
   $.ajax({
     url: '/api/blog',
-    method: 'Post',
+    method: 'POST',
     data: newPost
   }).done((response) => {
     console.log(response)
@@ -60,7 +63,6 @@ showUniquePost = (blog) => {
     method: 'GET'
   }).done((response) => {
     console.log(response)
-    const post = response.post
   })
 }
 
@@ -72,14 +74,25 @@ render () {
         <div>
           <NavBar />
           <Header />
-          <div> Hello World </div>
           <Route exact path='/' component={Home} />
-          {
-            this.state.blogPost
-              ? <Route path='/create-blog' render={() => <CreateBlogPost loadBlogPostsFromServer={this.loadBlogPostsFromServer} />} />
-              : 'Error'
-          }
           <Route path='/' component={About} />
+          {
+            this.state.posts
+              ? <Route path='/create-blog' render={() => <CreateBlogPost posts={this.state.posts} loadBlogPostsFromServer={this.loadBlogPostsFromServer} />} />
+              : 'No Posts'
+          }
+
+          {
+            this.state.posts
+              ? <Route path='/blog' render={() => <BlogPosts showUniqueHero={this.showUniqueHero} deleteHero={this.deleteHero} heroes={this.state.heroes} />} />
+              : 'Error!'
+          }
+          <Route path='/blog/:blogId' render={() => <BlogPostContainer />} />
+          {
+            this.state.posts
+              ? <Route path='/edit-blog/:blogId' render={() => <EditPostContainer posts={this.state.posts} />} />
+              : 'no posts'
+          }
         </div>
       </Router>
 

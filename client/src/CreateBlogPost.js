@@ -4,6 +4,7 @@ import $ from 'jquery'
 import {
   withRouter
 } from 'react-router-dom'
+import CreatePostForm from './CreatePostForm'
 
 class CreateBlogPost extends Component {
   state = {
@@ -12,7 +13,7 @@ class CreateBlogPost extends Component {
     img: undefined
   }
 
-  staticpropTypes = {
+  static propTypes = {
     loadBlogPostsFromServer: PropTypes.func.isRequired,
     history: PropTypes.object.isRequired
   }
@@ -35,14 +36,22 @@ class CreateBlogPost extends Component {
     })
   }
 
-  render() {
+  render () {
     console.log(this.props)
     return (
       <div>
         <h3> Create Post </h3>
+        <CreatePostForm
+          title={this.state.title}
+          description={this.state.description}
+          img={this.state.img}
+          onTitleChange={this.onTitleChange}
+          onDescriptionChange={this.onDescriptionChange}
+          onImageChange={this.onImageChange}
+        />
       </div>
     )
   }
 }
 
-export default CreateBlogPost
+export default withRouter(CreateBlogPost)
