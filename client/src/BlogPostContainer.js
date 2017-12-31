@@ -6,7 +6,9 @@ import PropTypes from 'prop-types'
 
 class BlogPostContainer extends Component {
   state = {
-    post: undefined
+    post: undefined,
+    comments: undefined,
+    text: undefined
   }
 
   static propTypes = {
@@ -27,13 +29,34 @@ class BlogPostContainer extends Component {
     })
   }
 
+  submitComment = (e) => {
+    e.preventDefault()
+    const newComment = {text: this.state.text}
+    $.ajax({
+      url: `/api/blog/${this.props.match.params.postId}/comments`,
+      method: 'POST',
+      data: newComment
+    }).done((response) => {
+      this.loadPost(this.props.match.params.postId)
+      this.setState({text: ''})
+    })
+  }
+
+  handleOnTextChange = (e) => this.setState({ text: e.target.value })
+
   render () {
     return (
       <div>
       Hello From Hero BlogPostContainer
         {
           this.state.post
-            ? <PostInfo post={this.state.post} />
+            ? <PostInfo
+              post={this.state.post}
+              comments={this.state.comments}
+              submitComment={this.submitComment}
+              handleOnTextChange={this.handleOnTextChange}
+              text={this.state.text}
+            />
             : 'Error'
         }
       </div>

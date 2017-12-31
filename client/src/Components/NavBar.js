@@ -3,42 +3,60 @@ import {
   Link
 } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import './style.css'
 
 const style = {
   container: {
-    border: '3px solid #A8DBD1',
+    borderBottomStyle: 'solid',
     backgroundColor: '#FEFEFE',
-    padding: 20,
-    margin: 10,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-around'
+    padding: 12,
+    margin: 10
 
   },
-  title: {
-    fontSize: 30,
-    textAlign: 'center',
-    fontFamily: 'Petit Formal Script'
-  },
   link: {
-    padding: 20
+    fontSize: 20,
+    padding: 5,
+    marginTop: 20,
+    fontFamily: 'Open Sans Condensed',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    backgroundColor: '#FEEAF0',
+    borderRadius: 1
+  },
+
+  title: {
+    padding: 17,
+    fontSize: 45,
+    textAlign: 'center',
+    fontFamily: 'Petit Formal Script',
+    color: '#9B9B9B'
+
+  },
+  p: {
+    textAlign: 'center',
+    fontFamily: 'Open Sans Condensed',
+    fontSize: 19,
+    letterSpacing: 2,
   }
+
 }
 
 const NavBar = ({DropdownButton, MenuItem}) => {
   return (
     <nav style={style.container}>
       <h1 style={style.title}>LifeStyle Blog</h1>
+      <p style={style.p}> Everyday life and interests </p>
       <div style={style.link}>
 
-        <Link to='/'>Home</Link>
-        <Link to='/'>About</Link>
-        <Link to='/'>All Posts</Link>
-        <Link to='/'>Create Post </Link>
-        <Link to='/'>Food</Link>
-        <Link to='/'>Style</Link>
-        <Link to='/'>Travel</Link>
-        <Link to='/'>WishList</Link>
+        <Link to='/'>HOME</Link>
+        <Link to='/about'>ABOUT</Link>
+        <Link to='/blog'>POSTS</Link>
+        <Link to='/create-blog'>CREATE POST</Link>
+        <Link to='/'>FOOD</Link>
+        <Link to='/'>STLYE</Link>
+        <Link to='/'>TRAVEL</Link>
+        <Link to='/'>WISHLIST</Link>
 
       </div>
     </nav>

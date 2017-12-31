@@ -12,6 +12,7 @@ import CreateBlogPost from './CreateBlogPost'
 import BlogPostContainer from './BlogPostContainer'
 import BlogPosts from './BlogPosts'
 import EditPostContainer from './EditPostContainer'
+import './Components/style.css'
 
 class App extends Component {
 state = {
@@ -95,7 +96,6 @@ render () {
           }
         </div>
       </Router>
-
     </div>
   )
 }

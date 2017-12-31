@@ -19,7 +19,7 @@ const EditPostForm = ({
     </div>
 
     <div>
-      <label />
+      <label> Image </label>
       <input value={img} onChange={onImageChange} />
     </div>
 
