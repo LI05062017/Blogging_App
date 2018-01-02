@@ -27,7 +27,7 @@ const style = {
 
   title: {
     padding: 17,
-    fontSize: 45,
+    fontSize: 50,
     textAlign: 'center',
     fontFamily: 'Petit Formal Script',
     color: '#9B9B9B'
@@ -37,7 +37,7 @@ const style = {
     textAlign: 'center',
     fontFamily: 'Open Sans Condensed',
     fontSize: 19,
-    letterSpacing: 2,
+    letterSpacing: 2
   }
 
 }

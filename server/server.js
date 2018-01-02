@@ -14,6 +14,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(require('./config/error-handler'))
 
+// app.use('/', BlogPost)
 app.use('/', blogRoutes)
 
 const server = app.listen(port, () => console.log(`⚡️Running on port: ${port}⚡️`))

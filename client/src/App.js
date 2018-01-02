@@ -28,44 +28,45 @@ loadBlogPostsFromServer = () => {
     url: '/api/blog',
     method: 'GET'
   }).done((response) => {
-    this.setState({posts: response.blogPost})
+    // console.log('**********', response)
+    this.setState({posts: response.blog})
   })
 }
 
-submitBlogPost = (e) => {
-  e.preventDefault()
-  const newPost = {
-    title: this.state.title,
-    description: this.state.description,
-    img: this.state.img
-  }
-  $.ajax({
-    url: '/api/blog',
-    method: 'POST',
-    data: newPost
-  }).done((response) => {
-    console.log(response)
-  })
-}
+// submitBlogPost = (e) => {
+//   console.log('**********')
+//   e.preventDefault()
+//   const newPost = {
+//     title: this.state.title,
+//     description: this.state.description,
+//     img: this.state.img
+//   }
+//   $.ajax({
+//     url: '/api/blog',
+//     method: 'POST',
+//     data: newPost
+//   }).done((response) => {
+//   })
+// }
 
-deleteHero = (blog) => {
-  $.ajax({
-    url: `/api/blog/${blog._id}`,
-    method: 'DELETE'
-  }).done((response) => {
-    console.log(response)
-    this.loadBlogPostsFromServer()
-  })
-}
+// deleteHero = (blog) => {
+//   $.ajax({
+//     url: `/api/blog/${blog._id}`,
+//     method: 'DELETE'
+//   }).done((response) => {
+//     console.log('**********', response)
+//     this.loadBlogPostsFromServer()
+//   })
+// }
 
-showUniquePost = (blog) => {
-  $.ajax({
-    url: `/api/blog/${blog._id}`,
-    method: 'GET'
-  }).done((response) => {
-    console.log(response)
-  })
-}
+// showUniquePost = (blog) => {
+//   $.ajax({
+//     url: `/api/blog/${blog._id}`,
+//     method: 'GET'
+//   }).done((response) => {
+//     console.log(response)
+//   })
+// }
 
 render () {
   return (
@@ -76,7 +77,14 @@ render () {
           <NavBar />
           <Header />
           <Route exact path='/' component={Home} />
-          <Route path='/' component={About} />
+          <Route exact path='/about' component={About} />
+          <Route path='/blog/:blogId' render={() => <BlogPostContainer />} />
+{/* 
+          {
+            this.state.posts
+              ? <Route path='/blog' render={() => <BlogPosts posts={this.state.posts} />} />
+              : 'ERROR'
+          } */}
           {
             this.state.posts
               ? <Route path='/create-blog' render={() => <CreateBlogPost posts={this.state.posts} loadBlogPostsFromServer={this.loadBlogPostsFromServer} />} />
@@ -85,15 +93,15 @@ render () {
 
           {
             this.state.posts
-              ? <Route path='/blog' render={() => <BlogPosts showUniqueHero={this.showUniqueHero} deleteHero={this.deleteHero} heroes={this.state.heroes} />} />
+              ? <Route path='/blog' render={() => <BlogPosts showUniquePost={this.showUniquePost} deletePost={this.deletePost} posts={this.state.posts} />} />
               : 'Error!'
           }
-          <Route path='/blog/:blogId' render={() => <BlogPostContainer />} />
+
           {
             this.state.posts
               ? <Route path='/edit-blog/:blogId' render={() => <EditPostContainer posts={this.state.posts} />} />
-              : 'no posts'
-          }
+              : 'no posts'}
+
         </div>
       </Router>
     </div>

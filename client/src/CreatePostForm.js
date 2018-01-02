@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const CreatePostForm = ({onTitleChange, onDescpriptionChange, onImageChange, handleSubmit}) => {
+const CreatePostForm = ({onTitleChange, onDescriptionChange, onImageChange, handleSubmit}) => {
   return (
     <div>
       <form>
@@ -12,7 +12,7 @@ const CreatePostForm = ({onTitleChange, onDescpriptionChange, onImageChange, han
 
         <div>
           <label> Description </label>
-          <input type='text' onChange={onDescpriptionChange} />
+          <input type='text' onChange={onDescriptionChange} />
         </div>
 
         <div>
@@ -20,7 +20,7 @@ const CreatePostForm = ({onTitleChange, onDescpriptionChange, onImageChange, han
           <input type='text' onChange={onImageChange} />
         </div>
 
-        <button onClick={handleSubmit} > Submit Post </button>
+        <button onClick={this.handleSubmit} > Submit Post </button>
 
       </form>
     </div>
@@ -30,7 +30,7 @@ const CreatePostForm = ({onTitleChange, onDescpriptionChange, onImageChange, han
 CreatePostForm.propTypes = {
   onTitleChange: PropTypes.func.isRequired,
   onImageChange: PropTypes.func.isRequired,
-  onDescpriptionChange: PropTypes.func.isRequired,
+  onDescriptionChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired
 
 }

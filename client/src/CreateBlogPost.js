@@ -23,21 +23,24 @@ class CreateBlogPost extends Component {
   onImageChange = (e) => this.setState({ img: e.target.value })
 
   handleSubmit = (e) => {
+    console.log('*********')
     e.preventDefault()
     const {title, description, img} = this.state
     const post = {title, description, img}
+    console.log(post)
     $.ajax({
       url: '/api/blog',
       method: 'POST',
-      date: post
+      data: post
     }).done((response) => {
+      console.log('**YAYAY**', response)
       this.props.loadBlogPostsFromServer()
       this.props.history.push('/blog')
     })
   }
 
   render () {
-    console.log(this.props)
+    //console.log(this.props)
     return (
       <div>
         <h3> Create Post </h3>

@@ -8,7 +8,7 @@ const style = {
 const Header = () => {
   return (
     <div style={style.container}>
-      <i className='fa fa-facebook-official' aria-hidden='true' />
+      Hello from Header
     </div>
   )
 }
