@@ -6,7 +6,8 @@ const BlogPostCard = ({posts, deletePost, showUniquePost}) => {
   return (
     <div>
       <p> this is your blog post card </p>
-      <h3> {posts.title} </h3>
+      <h3> {posts.title}</h3>
+
     </div>
 
   )

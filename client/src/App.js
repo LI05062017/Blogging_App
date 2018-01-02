@@ -79,15 +79,9 @@ render () {
           <Route exact path='/' component={Home} />
           <Route exact path='/about' component={About} />
           <Route path='/blog/:blogId' render={() => <BlogPostContainer />} />
-{/* 
           {
             this.state.posts
-              ? <Route path='/blog' render={() => <BlogPosts posts={this.state.posts} />} />
-              : 'ERROR'
-          } */}
-          {
-            this.state.posts
-              ? <Route path='/create-blog' render={() => <CreateBlogPost posts={this.state.posts} loadBlogPostsFromServer={this.loadBlogPostsFromServer} />} />
+              ? <Route path='/create-blog' render={() => <CreateBlogPost loadBlogPostsFromServer={this.loadBlogPostsFromServer} />} />
               : 'No Posts'
           }
 
