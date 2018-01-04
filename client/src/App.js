@@ -83,11 +83,11 @@ render () {
               : 'No Posts'
           }
 
-          <Route path='/blog/:blogId' render={() => <BlogPostContainer />} />
+          <Route exact path='/blog/:blogId' render={() => <BlogPostContainer />} />
 
           {
             this.state.posts
-              ? <Route path='/blog' render={() => <BlogPosts showUniquePost={this.showUniquePost} deletePost={this.deletePost} posts={this.state.posts} />} />
+              ? <Route exact path='/blog' render={() => <BlogPosts showUniquePost={this.showUniquePost} deletePost={this.deletePost} posts={this.state.posts} />} />
               : 'Error!'
           }
 

@@ -6,9 +6,9 @@ import PropTypes from 'prop-types'
 
 class BlogPostContainer extends Component {
   state = {
-    post: undefined
-    // comments: undefined,
-    // text: undefined
+    post: undefined,
+    comments: undefined,
+    text: undefined
   }
 
   static propTypes = {
@@ -24,25 +24,25 @@ class BlogPostContainer extends Component {
       url: `/api/blog/${id}`,
       method: 'GET'
     }).done((response) => {
-      console.log(response)
-      this.setState({post: response.blog})
+      console.log(response, '*💋***')
+      this.setState({post: response.data, comments: response.data.comments})
     })
   }
 
-  // submitComment = (e) => {
-  //   e.preventDefault()
-  //   const newComment = {text: this.state.text}
-  //   $.ajax({
-  //     url: `/api/blog/${this.props.match.params.blogId}/comments`,
-  //     method: 'POST',
-  //     data: newComment
-  //   }).done((response) => {
-  //     this.loadPost(this.props.match.params.blogId)
-  //     this.setState({text: ''})
-  //   })
-  // }
+  submitComment = (e) => {
+    e.preventDefault()
+    const newComment = {text: this.state.text}
+    $.ajax({
+      url: `/api/blog/${this.props.match.params.blogId}/comments`,
+      method: 'POST',
+      data: newComment
+    }).done((response) => {
+      this.loadBlog(this.props.match.params.blogId)
+      this.setState({text: ''})
+    })
+  }
 
-  // handleOnTextChange = (e) => this.setState({ text: e.target.value })
+  handleOnTextChange = (e) => this.setState({ text: e.target.value })
 
   render () {
     return (

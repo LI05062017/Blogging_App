@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const CommentForm = ({ handleOnTextChange, submitComment, text }) => {
   return (
     <form>
-      <textarea rows='3' placeholder='Please Comment Here' onChange={handleOnTextChange} value={text} />
+      <textarea rows='4' placeholder='Please Comment Here' onChange={handleOnTextChange} value={text} />
       <button type='button' onClick={submitComment}> Comment </button>
     </form>
   )

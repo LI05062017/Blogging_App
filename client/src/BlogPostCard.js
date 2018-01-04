@@ -44,7 +44,7 @@ const style = {
 }
 
 const BlogPostCard = ({deletePost, showUniquePost, blog, post}) => {
-  console.log(blog, '****')
+  console.log(post, '****')
   return (
     <div style={style.container}>
       <div style={style.cards}>
@@ -52,7 +52,7 @@ const BlogPostCard = ({deletePost, showUniquePost, blog, post}) => {
         <img style={style.img}img src={post.img} />
         {/* <p style={style.p}> {post.description} </p> */}
         <Link to={`/blog/${post._id}`}> View Post </Link>
-        {/* <Link to={`/edit-blog/${post._id}`}> Edit Post </Link> */}
+        <Link to={`/edit-blog/${post._id}`}> Edit Post </Link> */}
         <button onClick={() => deletePost(post)}> Delete Post </button>
         <button onClick={() => showUniquePost(post)}> More Info </button>
       </div>
