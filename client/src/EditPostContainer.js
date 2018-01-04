@@ -31,7 +31,7 @@ loadBlogPostsFromServer = () => {
     method: 'GET'
   }).done((response) => {
     console.log(response)
-    const {title, description, img} = response.post
+    const {title, description, img} = response.blog
     this.setState({
       title,
       description,
@@ -44,15 +44,15 @@ loadBlogPostsFromServer = () => {
 submitPostToServer = (e) => {
   e.preventDefault()
   const {title, description, img} = this.state
-  const post = {title, description, img}
-  console.log('POST TO EDIT', post)
+  const blog = {title, description, img}
+  console.log('POST TO EDIT', blog)
   $.ajax({
     url: `/api/blog/${this.props.match.blogId}`,
     method: 'PUT'
   }).done((response) => {
     console.log('RES FROM PUT', response)
-    alert(`${response.post.title} updated`)
-    this.props.history.push(`/post/${response.post._id}`)
+    alert(`${response.blog.title} updated`)
+    this.props.history.push(`/blog/${response.blog._id}`)
   })
 }
 

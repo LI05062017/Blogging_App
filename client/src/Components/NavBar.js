@@ -50,8 +50,7 @@ const NavBar = ({DropdownButton, MenuItem}) => {
       <div style={style.link}>
 
         <Link to='/'>HOME</Link>
-        <Link to='/about'>ABOUT</Link>
-        <Link to='/blog'>POSTS</Link>
+        <Link to='/blog'>ALL POSTS</Link>
         <Link to='/create-blog'>CREATE POST</Link>
         <Link to='/'>FOOD</Link>
         <Link to='/'>STLYE</Link>

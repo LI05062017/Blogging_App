@@ -6,48 +6,48 @@ import PropTypes from 'prop-types'
 
 class BlogPostContainer extends Component {
   state = {
-    post: undefined,
-    comments: undefined,
-    text: undefined
+    post: undefined
+    // comments: undefined,
+    // text: undefined
   }
 
   static propTypes = {
     match: PropTypes.object.isRequired
   }
   componentDidMount () {
-    const postId = this.props.match.params.postId
-    this.loadPost(postId)
+    const blogId = this.props.match.params.blogId
+    this.loadBlog(blogId)
   }
 
-  loadPost = (id) => {
+  loadBlog = (id) => {
     $.ajax({
       url: `/api/blog/${id}`,
       method: 'GET'
     }).done((response) => {
       console.log(response)
-      this.setState({post: response.post})
+      this.setState({post: response.blog})
     })
   }
 
-  submitComment = (e) => {
-    e.preventDefault()
-    const newComment = {text: this.state.text}
-    $.ajax({
-      url: `/api/blog/${this.props.match.params.postId}/comments`,
-      method: 'POST',
-      data: newComment
-    }).done((response) => {
-      this.loadPost(this.props.match.params.postId)
-      this.setState({text: ''})
-    })
-  }
+  // submitComment = (e) => {
+  //   e.preventDefault()
+  //   const newComment = {text: this.state.text}
+  //   $.ajax({
+  //     url: `/api/blog/${this.props.match.params.blogId}/comments`,
+  //     method: 'POST',
+  //     data: newComment
+  //   }).done((response) => {
+  //     this.loadPost(this.props.match.params.blogId)
+  //     this.setState({text: ''})
+  //   })
+  // }
 
-  handleOnTextChange = (e) => this.setState({ text: e.target.value })
+  // handleOnTextChange = (e) => this.setState({ text: e.target.value })
 
   render () {
     return (
       <div>
-      Hello From Hero BlogPostContainer
+      Hello From Hero BlogPostContainer!!!!!
         {
           this.state.post
             ? <PostInfo

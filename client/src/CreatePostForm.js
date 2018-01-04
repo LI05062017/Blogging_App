@@ -20,7 +20,7 @@ const CreatePostForm = ({onTitleChange, onDescriptionChange, onImageChange, hand
           <input type='text' onChange={onImageChange} />
         </div>
 
-        <button onClick={this.handleSubmit} > Submit Post </button>
+        <button onClick={handleSubmit} > Submit Post </button>
 
       </form>
     </div>

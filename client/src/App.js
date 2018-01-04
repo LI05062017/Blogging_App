@@ -4,14 +4,13 @@ import {
   Route
 } from 'react-router-dom'
 import $ from 'jquery'
-import NavBar from './Components/NavBar'
-import Header from './Components/Header'
-import Home from './Components/Home'
-import About from './Components/About'
+import BlogPosts from './BlogPosts'
 import CreateBlogPost from './CreateBlogPost'
 import BlogPostContainer from './BlogPostContainer'
-import BlogPosts from './BlogPosts'
 import EditPostContainer from './EditPostContainer'
+import NavBar from './Components/NavBar'
+// import Header from './Components/Header'
+import Home from './Components/Home'
 import './Components/style.css'
 
 class App extends Component {
@@ -33,40 +32,42 @@ loadBlogPostsFromServer = () => {
   })
 }
 
-// submitBlogPost = (e) => {
-//   console.log('**********')
-//   e.preventDefault()
-//   const newPost = {
-//     title: this.state.title,
-//     description: this.state.description,
-//     img: this.state.img
-//   }
-//   $.ajax({
-//     url: '/api/blog',
-//     method: 'POST',
-//     data: newPost
-//   }).done((response) => {
-//   })
-// }
+submitBlogPost = (e) => {
+  e.preventDefault()
+  const newPost = {
+    title: this.state.title,
+    description: this.state.description,
+    img: this.state.img
+  }
+  $.ajax({
+    url: '/api/blog',
+    method: 'POST',
+    data: newPost
+  }).done((response) => {
+    console.log(response, '*******')
+  })
+}
 
-// deleteHero = (blog) => {
-//   $.ajax({
-//     url: `/api/blog/${blog._id}`,
-//     method: 'DELETE'
-//   }).done((response) => {
-//     console.log('**********', response)
-//     this.loadBlogPostsFromServer()
-//   })
-// }
+deletePost = (blog) => {
+  $.ajax({
+    url: `/api/blog/${blog._id}`,
+    method: 'DELETE'
+  }).done((response) => {
+  // console.log('**********', response)
+    this.loadBlogPostsFromServer()
+  })
+}
 
-// showUniquePost = (blog) => {
-//   $.ajax({
-//     url: `/api/blog/${blog._id}`,
-//     method: 'GET'
-//   }).done((response) => {
-//     console.log(response)
-//   })
-// }
+showUniquePost = (blog) => {
+  $.ajax({
+    url: `/api/blog/${blog._id}`,
+    method: 'GET'
+  }).done((response) => {
+    console.log(response)
+    const post = response.blog
+    alert(`${post.title}`)
+  })
+}
 
 render () {
   return (
@@ -75,15 +76,14 @@ render () {
       <Router>
         <div>
           <NavBar />
-          <Header />
           <Route exact path='/' component={Home} />
-          <Route exact path='/about' component={About} />
-          <Route path='/blog/:blogId' render={() => <BlogPostContainer />} />
           {
             this.state.posts
               ? <Route path='/create-blog' render={() => <CreateBlogPost loadBlogPostsFromServer={this.loadBlogPostsFromServer} />} />
               : 'No Posts'
           }
+
+          <Route path='/blog/:blogId' render={() => <BlogPostContainer />} />
 
           {
             this.state.posts
