@@ -8,7 +8,7 @@ import './style.css'
 const style = {
   container: {
     borderBottomStyle: 'solid',
-    backgroundColor: '#FEFEFE',
+    backgroundColor: 'white',
     padding: 10,
     margin: 10,
     paddingBottom: 0,
@@ -23,7 +23,7 @@ const style = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: '#FEDCDC',
+    backgroundColor: '#FFEAEB',
     borderRadius: 1
   },
 

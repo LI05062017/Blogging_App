@@ -11,27 +11,46 @@ const style = {
     justifyContent: 'center',
     flexWrap: 'wrap',
     paddingTop: 10,
-    paddingBottom: 40,
+    paddingBottom: 40
   },
   h1: {
-    backgroundColor: '#FEDCDC',
+    backgroundColor: 'white',
+    // borderBottom: '2px solid grey',
+    color: 'black',
+    // bottomBorderStyle: 'solid',
+    borderRadius: 2,
     fontFamily: 'Poiret One',
     textAlign: 'center',
     fontSize: 50,
     paddingTop: 15,
-    paddingBottom: 15,
-    margin: 30,
-  }, 
+    paddingBottom: 10,
+    marginTop: 10,
+    marginBottom: 0,
+    marginLeft: 70,
+    marginRight: 70
+  },
+  p: {
+    backgroundColor: 'white',
+    fontFamily: 'Open Sans Condensed',
+    fontSize: 25,
+    textDecoration: 'overline',
+    textAlign: 'center',
+    padding: 19,
+    letterSpacing: 4,
+    marginLeft: 70,
+    marginRight: 70
+  },
   background: {
-   backgroundColor: '#A9A4A8',
-   padding: 2
+    backgroundColor: '#FFEAEB',
+    padding: 2
   }
 }
 
 const BlogPosts = ({ posts, deletePost, showUniquePost, blog }) => {
   return (
     <div style={style.background}>
-      <h1 style={style.h1}> All Blog Posts </h1>
+      <h1 style={style.h1}> Trending Blog Posts </h1>
+      <p style={style.p}> All Blog Posts </p>
       <div style={style.container}>
         {
           posts.map(post => {

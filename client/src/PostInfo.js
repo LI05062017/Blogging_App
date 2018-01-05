@@ -5,7 +5,7 @@ import CommentForm from './Components/CommentForm'
 
 const style = {
   container: {
-    backgroundColor: '#A4BFDB',
+    backgroundColor: '#E0E3FA',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -13,6 +13,7 @@ const style = {
     padding: 10,
   },
   title: {
+    borderBottomStyle: 'solid',
     fontFamily: 'Poiret One',
     textAlign: 'center',
     fontSize: 50,
@@ -20,7 +21,8 @@ const style = {
   },
   img: {
     alignItems: 'center',
-    width: '50%'
+    width: '70%',
+    border: '3px solid grey'
   },
   p: {
     fontSize: 18,
@@ -39,8 +41,8 @@ const style = {
     padding: 10
   },
   card: {
-    border: '3px solid #FEDCDC',
-    borderRadius: 2,
+    border: '6px solid #FEDCDC',
+    borderRadius: 3,
     backgroundColor: 'white',
     display: 'flex',
     flexDirection: 'column',

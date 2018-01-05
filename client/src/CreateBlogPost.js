@@ -40,7 +40,6 @@ class CreateBlogPost extends Component {
     // console.log(this.props)
     return (
       <div>
-        <h3> Create Post </h3>
         <CreatePostForm
           title={this.state.title}
           description={this.state.description}
