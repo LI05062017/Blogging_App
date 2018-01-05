@@ -64,8 +64,10 @@ showUniquePost = (blog) => {
     method: 'GET'
   }).done((response) => {
     console.log(response)
-    const post = response.blog
-    alert(`${post.title}`)
+    const blog = response.data
+    alert(`${blog.title} 
+    🔸🔸Additional Information🔸🔸
+    ${blog.description}`)
   })
 }
 

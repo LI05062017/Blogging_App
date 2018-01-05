@@ -9,8 +9,10 @@ const style = {
   container: {
     borderBottomStyle: 'solid',
     backgroundColor: '#FEFEFE',
-    padding: 12,
-    margin: 10
+    padding: 10,
+    margin: 10,
+    paddingBottom: 0,
+    marginBottom: 10
 
   },
   link: {
@@ -21,7 +23,7 @@ const style = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: '#FEEAF0',
+    backgroundColor: '#FEDCDC',
     borderRadius: 1
   },
 
@@ -30,7 +32,7 @@ const style = {
     fontSize: 50,
     textAlign: 'center',
     fontFamily: 'Petit Formal Script',
-    color: '#9B9B9B'
+    color: '#9B9B9B',
 
   },
   p: {

@@ -57,10 +57,18 @@ const Home = () => {
         <img style={style.imgOne} src={'http://omandthecityblog.com/wp-content/uploads/2017/06/cover-photo.jpg'} />
         <img style={style.imgTwo} src={'https://pbs.twimg.com/profile_images/885612085509582849/GO3cGtir.jpg'} />
         <img style={style.imgOne} src={'http://omandthecityblog.com/wp-content/uploads/2017/06/cover-photo.jpg'} />
-       
-
-
       </div>
+      <div style={style.imgcontainer}>
+        <img style={style.imgOne} src={'http://omandthecityblog.com/wp-content/uploads/2017/06/cover-photo.jpg'} />
+        <img style={style.imgTwo} src={'https://pbs.twimg.com/profile_images/885612085509582849/GO3cGtir.jpg'} />
+        <img style={style.imgOne} src={'http://omandthecityblog.com/wp-content/uploads/2017/06/cover-photo.jpg'} />
+      </div>
+      <div style={style.imgcontainer}>
+        <img style={style.imgOne} src={'http://omandthecityblog.com/wp-content/uploads/2017/06/cover-photo.jpg'} />
+        <img style={style.imgTwo} src={'https://pbs.twimg.com/profile_images/885612085509582849/GO3cGtir.jpg'} />
+        <img style={style.imgOne} src={'http://omandthecityblog.com/wp-content/uploads/2017/06/cover-photo.jpg'} />
+      </div>
+
     </div>
   )
 }

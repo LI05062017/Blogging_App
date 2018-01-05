@@ -47,7 +47,6 @@ class BlogPostContainer extends Component {
   render () {
     return (
       <div>
-      Hello From Hero BlogPostContainer!!!!!
         {
           this.state.post
             ? <PostInfo

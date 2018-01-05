@@ -4,13 +4,9 @@ import PropTypes from 'prop-types'
 
 const style = {
   container: {
-    // border: '1px solid black',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
     padding: 5,
-    marginRight: 100,
-    marginLeft: 100,
+    marginRight: 5,
+    marginLeft: 5,
     marginTop: 5
   },
   h3: {
@@ -21,25 +17,28 @@ const style = {
     letterSpacing: 4,
     textDecoration: 'underline'
   },
+  buttonContainer: {
+    display: 'flex',
+    justifyContent: 'space-around'
+  },
   button: {
-
+    margin: 2,
   },
   p: {
-    textAlign: 'center',
+    textAlign: 'center'
   },
   cards: {
-    border: '1px solid #BFC0C0',
-    borderRadius: 1,
-    // backgroundColor: 'white',
-    // display: 'flex',
-    // flexDirection: 'column',
-    // flexWrap: 'wrap',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // paddingBottom: 10,
+    border: '3px solid #FEDCDC',
+    backgroundColor: 'white',
+    borderRadius: 2,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: 15,
   },
   img: {
-    width: '80%',
+    width: '50%'
   }
 }
 
@@ -50,11 +49,13 @@ const BlogPostCard = ({deletePost, showUniquePost, blog, post}) => {
       <div style={style.cards}>
         <h3 style={style.h3} > {post.title}</h3>
         <img style={style.img}img src={post.img} />
-        {/* <p style={style.p}> {post.description} </p> */}
+        <p style={style.p}> {post.description} </p>
         <Link to={`/blog/${post._id}`}> View Post </Link>
-        <Link to={`/edit-blog/${post._id}`}> Edit Post </Link> */}
-        <button onClick={() => deletePost(post)}> Delete Post </button>
-        <button onClick={() => showUniquePost(post)}> More Info </button>
+        <Link to={`/edit-blog/${post._id}`}> Edit Post </Link>
+        <div style={style.buttonContainer}>
+          <button style={style.button} onClick={() => deletePost(post)}> Delete Post </button>
+          <button style={style.button} onClick={() => showUniquePost(post)}> More Info </button>
+        </div>
       </div>
     </div>
 

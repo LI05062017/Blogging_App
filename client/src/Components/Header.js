@@ -2,7 +2,7 @@ import React from 'react'
 
 const style = {
   container: {
-    border: '1px solid black'
+    border: '1px solid grey'
   }
 }
 const Header = () => {
