@@ -79,6 +79,7 @@ render () {
         <div>
           <NavBar />
           <Route exact path='/' component={Home} />
+
           {
             this.state.posts
               ? <Route path='/create-blog' render={() => <CreateBlogPost loadBlogPostsFromServer={this.loadBlogPostsFromServer} />} />

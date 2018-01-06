@@ -26,7 +26,10 @@ const style = {
     borderRadius: 3
   },
   p: {
-    textAlign: 'center'
+    fontSize: '18px',
+    paddingTop: '5px',
+    textAlign: 'center',
+    fontFamily: 'Pavanam'
   },
   cards: {
     border: '3px solid #FEA7A9',
@@ -39,10 +42,22 @@ const style = {
     paddingBottom: 15
   },
   img: {
-    width: '50%'
+    width: '70%'
   },
   link: {
-    color: 'black'
+    fontSize: '16px',
+    letterSpacing: '1',
+    textDecoration: 'underline',
+    color: 'black',
+    fontFamily: 'Open Sans Condensed'
+  },
+  linkTwo: {
+    fontSize: '16px',
+    letterSpacing: '1',
+    textDecoration: 'underline',
+    color: 'black',
+    fontFamily: 'Open Sans Condensed',
+    paddingBottom: '2px',
   }
 }
 
@@ -57,6 +72,8 @@ const BlogPostCard = ({deletePost, showUniquePost, blog, post}) => {
 
         <div style={style.link}>
           <Link to={`/blog/${post._id}`}> View Post </Link>
+        </div>
+        <div style={style.linkTwo}>
           <Link to={`/edit-blog/${post._id}`}> Edit Post </Link>
         </div>
 
