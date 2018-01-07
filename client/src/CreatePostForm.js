@@ -4,20 +4,22 @@ import PropTypes from 'prop-types'
 const style = {
   container: {
     paddingTop: 2,
+    paddingBottom: 50,
     // padding: 30,
     display: 'flex',
     justifyContent: 'flex-start',
     justifyContent: 'center',
     alignItems: 'center',
-    
+
   },
   form: {
+    fontSize: 14,
     backgroundColor: 'white',
-    border: '3px solid grey',
+    color: 'black',
     borderRadius: 2,
     padding: 40,
     margin: 0,
-    fontFamily: 'Open Sans',
+    fontFamily: 'Open Sans'
 
   },
   fields: {
@@ -42,22 +44,25 @@ const style = {
     borderRadius: 3
   },
   title: {
-    color: 'grey',
+    color: '#ffe2e4',
     marginRight: 300,
     marginLeft: 300,
     fontSize: 50,
     borderBottomStyle: 'solid',
     fontFamily: 'Poiret One',
+    fontWeight: 'bold',
     textAlign: 'center',
-    paddingTop: 17,
+    paddingTop: 17
   }
 }
 
 const CreatePostForm = ({onTitleChange, onDescriptionChange, onImageChange, handleSubmit}) => {
   return (
     <div className='creatPostForm'>
+
       <h3 style={style.title}> Create A Post</h3>
       <div style={style.container}>
+
         <form style={style.form}>
           <div style={style.field}>
             <label style={style.label}> Title </label>
@@ -78,6 +83,7 @@ const CreatePostForm = ({onTitleChange, onDescriptionChange, onImageChange, hand
             <button style={style.button} onClick={handleSubmit} > Submit Post </button>
           </div>
         </form>
+
       </div>
     </div>
   )

@@ -1,4 +1,12 @@
 .creatPostForm {
-  background-color: #ddbfff;
-  
+  /* background: white; */
+  color: #ffe2e4;
+  background-color: #bababa
+}
+
+.postInfo {
+
+  background-color: #444444;
+  color:black
+
 }

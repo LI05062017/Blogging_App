@@ -5,14 +5,15 @@ import CommentForm from './Components/CommentForm'
 
 const style = {
   container: {
-    backgroundColor: '#E0E3FA',
+  //  backgroundColor: '#E0E3FA',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10,
+    padding: 10
   },
   title: {
+    color:'black',
     borderBottomStyle: 'solid',
     fontFamily: 'Poiret One',
     textAlign: 'center',
@@ -22,7 +23,8 @@ const style = {
   img: {
     alignItems: 'center',
     width: '70%',
-    border: '3px solid grey'
+    border: '3px solid grey',
+    borderRadius: 2,
   },
   p: {
     fontSize: 18,
@@ -41,35 +43,37 @@ const style = {
     padding: 10
   },
   card: {
-    border: '6px solid #FEDCDC',
-    borderRadius: 3,
+    border: '6px solid ffe2e4',
+    borderRadius: 2,
     backgroundColor: 'white',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     width: '50%',
-    padding: 5,
+    padding: 5
   }
 }
 
 const PostInfo = ({post, comments, submitComment, handleOnTextChange, text}) => {
   return (
-    <div style={style.container}>
-      <div style={style.card}>
-        <h1 style={style.title}> {post.title} </h1>
-        <img style={style.img}src={post.img} />
-        <p style={style.p}> {post.description} </p>
-        <div style={style.commentForm}>
-          <CommentForm
-            handleOnTextChange={handleOnTextChange}
-            submitComment={submitComment}
-            text={text}
-          />
-        </div>
-        <div style={style.commentList}>
-          <CommentList
-            comments={comments} />
+    <div className='postInfo '>
+      <div style={style.container}>
+        <div style={style.card}>
+          <h1 style={style.title}> {post.title} </h1>
+          <img style={style.img}src={post.img} />
+          <p style={style.p}> {post.description} </p>
+          <div style={style.commentForm}>
+            <CommentForm
+              handleOnTextChange={handleOnTextChange}
+              submitComment={submitComment}
+              text={text}
+            />
+          </div>
+          <div style={style.commentList}>
+            <CommentList
+              comments={comments} />
+          </div>
         </div>
       </div>
     </div>
