@@ -9,7 +9,7 @@ const style = {
     display: 'flex',
     justifyContent: 'flex-start',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
 
   },
   form: {
@@ -27,6 +27,8 @@ const style = {
     margin: 15
   },
   label: {
+    fontFamily: 'Poiret One',
+    letterSpacing: 3,
     padding: 3,
     marginRight: 15
   },
@@ -53,6 +55,14 @@ const style = {
     fontWeight: 'bold',
     textAlign: 'center',
     paddingTop: 17
+  },
+  img: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '20%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 }
 
@@ -61,21 +71,22 @@ const CreatePostForm = ({onTitleChange, onDescriptionChange, onImageChange, hand
     <div className='creatPostForm'>
 
       <h3 style={style.title}> Create A Post</h3>
+
       <div style={style.container}>
 
         <form style={style.form}>
           <div style={style.field}>
-            <label style={style.label}> Title </label>
+            <label style={style.label}> - Title - </label>
             <input style={style.input}type='text' placeholder={'Enter Title'} onChange={onTitleChange} />
           </div>
 
           <div style={style.field}>
-            <label style={style.label}> Description </label>
+            <label style={style.label}> - Description - </label>
             <input style={style.input} type='text' placeholder={'Enter Description'}onChange={onDescriptionChange} />
           </div>
 
           <div style={style.field}>
-            <label style={style.label}> Image </label>
+            <label style={style.label}> - Image - </label>
             <input style={style.input} type='text' placeholder={'Type Url Image '} onChange={onImageChange} />
           </div>
 

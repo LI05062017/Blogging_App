@@ -66,7 +66,7 @@ showUniquePost = (blog) => {
     console.log(response)
     const blog = response.data
     alert(`${blog.title} 
-    🔸🔸Additional Information🔸🔸
+    - Additional Information -
     ${blog.description}`)
   })
 }

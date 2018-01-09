@@ -32,7 +32,7 @@ const style = {
     fontSize: 50,
     textAlign: 'center',
     fontFamily: 'Petit Formal Script',
-    color: '#9B9B9B',
+    color: '#9B9B9B'
 
   },
   p: {

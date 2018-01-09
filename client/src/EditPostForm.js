@@ -13,11 +13,11 @@ const style = {
   },
   form: {
     backgroundColor: 'white',
-    border: '3px solid grey',
+    // border: '3px solid grey',
     borderRadius: 2,
     padding: 40,
     margin: 0,
-    fontFamily: 'Open Sans'
+    fontFamily: 'Open Sans',
 
   },
   fields: {
@@ -25,6 +25,9 @@ const style = {
     margin: 15
   },
   label: {
+    fontFamily: 'Poiret One',
+    letterSpacing: 3,
+  
     padding: 3,
     marginRight: 15
   },
@@ -42,17 +45,36 @@ const style = {
     borderRadius: 3
   },
   title: {
-    color: 'grey',
-    marginRight: 300,
-    marginLeft: 300,
+    color: 'black',
+    color: '#a36570',
+    paddingTop: 70,
+    marginRight: 150,
+    marginLeft: 150,
     fontSize: 50,
-    borderBottomStyle: 'solid',
-    fontFamily: 'Poiret One',
+    //fontFamily: 'Poiret One',
+    fontFamily: 'Dancing Script',
     textAlign: 'center',
     paddingTop: 17
   },
   background: {
-    backgroundColor: '#ffbaea',
+    border: '1px solid #c6baad',
+    backgroundColor: '#c6baad',
+  },
+  img: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '2',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+
+  },
+  allContainer: {
+    borderRadius: 3,
+    backgroundColor: 'white',
+    marginRight: 150,
+    marginLeft: 150,
+    marginBottom: 10,
   }
 }
 
@@ -61,33 +83,39 @@ const EditPostForm = ({
   onDescriptionChange, onImageChange, submitPostToServer
 }) =>
   <div style={style.background}>
-    <h1 style={style.title}> Edit A Post Here </h1>
-    <div style={style.container} >
-      <form style={style.form}>
+    <div style={style.allContainer}>
+      <h1 style={style.title}> Edit A Post Here </h1>
 
-        <div style={style.field}>
-          <label style={style.label}> Title </label>
-          <input style={style.input} value={title} onChange={onTitleChange} />
-        </div>
+      <div style={style.img}>
+        <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLpVyQuqrE3LFo7rLctF2VKLZk4uOB6wVvSG7hAjHTNkodCsvuKg'} />
+      </div>
 
-        <div>
-          <label style={style.label}> Description </label>
-          <input style={style.input} value={description} onChange={onDescriptionChange} />
-        </div>
+      <div style={style.container} >
+        <form style={style.form}>
 
-        <div>
-          <label style={style.label}> Image </label>
-          <input style={style.input} value={img} onChange={onImageChange} />
-        </div>
+          <div style={style.field}>
+            <label style={style.label}> - Title - </label>
+            <input style={style.input} value={title} onChange={onTitleChange} />
+          </div>
 
-        <div style={style.buttonContainer}>
-          <button style={style.button} onClick={submitPostToServer}> Submit </button>
-        </div>
+          <div>
+            <label style={style.label}>- Description -</label>
+            <input style={style.input} value={description} onChange={onDescriptionChange} />
+          </div>
 
-      </form>
+          <div>
+            <label style={style.label}>- Image -</label>
+            <input style={style.input} value={img} onChange={onImageChange} />
+          </div>
+
+          <div style={style.buttonContainer}>
+            <button style={style.button} onClick={submitPostToServer}> Submit </button>
+          </div>
+
+        </form>
+      </div>
     </div>
   </div>
-
 EditPostForm.propTypes = {
   title: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
